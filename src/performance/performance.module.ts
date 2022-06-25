@@ -7,7 +7,6 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 @Module({
   imports: [
     TypeOrmModule.forFeature([Performance]),
-    HttpModule
   ],
   controllers: [PerformanceController],
   providers: [PerformanceService]

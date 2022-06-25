@@ -7,6 +7,7 @@ import { PerformanceModule } from './performance/performance.module';
 import { ReviewModule } from './review/review.module';
 import { ArchiveModule } from './archive/archive.module';
 import { WishModule } from './wish/wish.module';
+import { ImageModule } from './image/image.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { WishModule } from './wish/wish.module';
     ReviewModule,
     ArchiveModule,
     WishModule,
+    ImageModule,
   ],
   controllers: [],
   providers: [],
