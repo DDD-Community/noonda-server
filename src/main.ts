@@ -8,6 +8,7 @@ import { Server } from "http";
 import { ExpressAdapter } from "@nestjs/platform-express";
 import { createServer, proxy } from "aws-serverless-express";
 import { eventContext } from 'aws-serverless-express/middleware';
+import {ValidationPipe} from "@nestjs/common";
 
 let server: Handler;
 const express = require('express');
@@ -20,6 +21,7 @@ async function bootstrapServer(): Promise<Server> {
     const expressApp = express();
     const nestApp = await NestFactory.create(AppModule, new ExpressAdapter(expressApp))
     nestApp.use(eventContext());
+    nestApp.useGlobalPipes(new ValidationPipe({transform: true}));
     SwaggerSetup(nestApp);
     await nestApp.init();
     await nestApp.listen(3005);

@@ -23,10 +23,10 @@ export class Performance {
   @Column()
   place: string;
 
-  @Column()
+  @Column({nullable: true})
   category: string;
 
-  @Column()
+  @Column({nullable: true})
   area: string;
 
   @Column()
@@ -87,4 +87,13 @@ export class PerformanceDTO {
 
   @ApiProperty()
   wishes: number;
+}
+
+export class PerformanceFilterDTO {
+
+  @ApiProperty({example: ['연극']})
+  category: string[];
+
+  @ApiProperty({example: ['서울']})
+  area: string[];
 }

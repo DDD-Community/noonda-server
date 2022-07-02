@@ -20,5 +20,11 @@ export class ResponseListDto {
   statusMsg: string;
 
   @ApiProperty()
+  page: number = 1;
+
+  @ApiProperty()
+  count: number = 10;
+
+  @ApiProperty()
   data: PerformanceDTO[];
 }

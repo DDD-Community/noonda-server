@@ -1,5 +1,6 @@
 import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Wish } from "../wish/wish.entity";
+import {Archive} from "../archive/archive.entity";
 
 @Entity({ synchronize: true })
 export class User {
@@ -21,6 +22,9 @@ export class User {
 
   @OneToMany(type => Wish, wish => wish.user)
   wishes: Wish[];
+
+  @OneToMany(type => Archive, archive => archive.user)
+  archive: Archive[];
 
   // TODO: reviews 추가
 }
